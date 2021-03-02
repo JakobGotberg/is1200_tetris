@@ -6,6 +6,8 @@
 
 // game logic
 
+
+
 void logic_to_pixel_set( uint8_t row, uint8_t block )
 {
 	uint8_t pixel_row = row + 66 + ((row -1 ) * 2);
@@ -171,35 +173,39 @@ return 'z';
 
 }
 
+// falls down, once per "tick", as long as there is no collision
 void fall_down(uint8_t row, uint8_t block, char shape)
 {
-delete_shape(row, block, shape);
-display_shape(row+1, block, shape);
+	if(row != 20 && (collision_check(row+1, block) == 0)){
+		delete_shape(row, block, shape);
+		display_shape(row+1, block, shape);
+	}
 }
 
+// goes left, once per btn-press, as long as there is no collision
 void go_left(uint8_t row, uint8_t block, char shape)
 {
-delete_shape(row, block, shape);
-display_shape(row, block+1, shape);
-
+	if(block != 1 && (collision_check(row, block+1) == 0)){
+		delete_shape(row, block, shape);
+		display_shape(row, block+1, shape);
+	}
 }
-
+// goes rigth, once per btn-press, as long as there is no collision
 void go_right(uint8_t row, uint8_t block, char shape)
 {
+	if(block != 10 && (collision_check(row, block-1) == 0))
 delete_shape(row, block, shape);
 display_shape(row, block-1, shape);
 }
 
-/*
-	ground, return 1
-	down, return 2
-	right, return 3
-	left, return 4
-	wall_right 5
-	wall_left 6
-*/
+// checks collision with other blocks
+uint8_t collision_check(uint8_t row, uint8_t block)
+{
+	int collision_row = row - 1;
+	int collision_block = 10 - block;
 
-
+	return collision_array[collision_row][collision_block];
+}
 
 
 

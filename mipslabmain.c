@@ -65,6 +65,9 @@ int main(void) {
 	SPI2CONSET = 0x8000;		// bit 15, SPI Peripheral is enabled
 	
 	
+	//Set up buttons as inputs
+	TRISD = 70;
+	
 	display_init();
 	display_update();
 

@@ -27,10 +27,20 @@ void pixel_clr(unsigned int x, unsigned int y);
 void display_print(void); 
 void display_testing(void);
 
+void logic_to_pixel_set( uint8_t row, uint8_t block );
+void logic_to_pixel_clr( uint8_t row, uint8_t block );
+void display_shape( uint8_t row, uint8_t block, char shape);
+void delete_shape( uint8_t row, uint8_t block, char shape);
+
+void length_test(void);
+
+
 extern uint8_t dis_arr[512];
 extern uint8_t* dis_ptr;
 extern uint8_t logic_array[200];
 extern uint8_t* log_ptr;
+extern uint8_t collision_array[20][10];
+
 
 /* Declare display_debug - a function to help debugging.
 

@@ -98,7 +98,7 @@ void display_init(void) {
 
 void display_frame()
 {
-  int x = 65;
+  int x = 66; 
   int y = 0;
 
 while( y < 31 ){
@@ -116,7 +116,7 @@ while( y > 0 ){
   y--;
 }
 
-while( x > 64 ){
+while( x > 65 ){
   pixel_set(x, y);
   x--;
 }
@@ -130,7 +130,8 @@ void display_testing()
     if( i < 128)
       dis_arr[i] = 0xaa;
 
-    if( i > 127 && i < 256 )      dis_arr[i] = 0xff;
+    if( i > 127 && i < 256 )      
+      dis_arr[i] = 0xff;
 
     if( i > 255 && i < 384 )
       dis_arr[i] = 0xaa;
@@ -276,6 +277,9 @@ switch(y)
 }
 
 }
+
+
+
 
 int get_btns(void){
 int returnValue = PORTD & 0xe0;		//Masking bits 7:5

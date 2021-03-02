@@ -277,4 +277,10 @@ switch(y)
 
 }
 
+int get_btns(void){
+int returnValue = PORTD & 0xe0;		//Masking bits 7:5
+	returnValue = returnValue >> 5;
+	return returnValue;
+}
+
 

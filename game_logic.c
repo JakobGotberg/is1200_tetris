@@ -291,9 +291,9 @@ if(shape == 'T' || shape == 't'){
 void collision_check_down_shape_T(uint8_t row, uint8_t block){
 	switch(rotationPosition){
 		case 0:
-		downCheck = collision_check(row+1, block);
-		downCheck = collision_check(row+1, block-1);
-		downCheck = collision_check(row+1, block-2);
+		downCheck = collision_check(row+2, block);
+		downCheck = collision_check(row+2, block-1);
+		downCheck = collision_check(row+2, block-2);
 		break;
 		case 1:
 		downCheck = collision_check(row+3, block);

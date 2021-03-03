@@ -9,15 +9,7 @@
 
 #include <stdint.h>   /* Declarations of uint_32 and the like */
 #include <pic32mx.h>  /* Declarations of system-specific addresses etc */
-#include "mipslab.h"  /* Declatations for these labs */
-
-
-
-void user_isr( void )
-{
-  return;
-}
-
+#include "header_file.h"  /* Declatations for these labs */
 
 int main(void) {
         /*
@@ -65,16 +57,23 @@ int main(void) {
 	SPI2CONSET = 0x8000;		// bit 15, SPI Peripheral is enabled
 	
 	
-	//Set up buttons as inputs
-	TRISD = 70;
-	
 	display_init();
 	display_update();
+	timer_setup();
 
 
 	display_frame();
 
-	display_print();
+	
+	
+	volatile int* ifs_ptr = (volatile int*) 0xbf881030;
+
+	while(1)
+	{
+		
+	}
+
+	
 
 	return 0;
 }

@@ -208,6 +208,155 @@ uint8_t collision_check(uint8_t row, uint8_t block)
 }
 
 
+void fall_down(uint8_t row, uint8_t block, char shape)
+{
+	collision_check_per_shape(row, block, shape);
+	if(row != 20 && downCheck == 0)){
+		delete_shape(row, block, shape);
+		display_shape(row+1, block, shape);
+	}
+}
+//Collision check per shape
+void collision_check_per_shape(uint8_t row, uint8_t block, char shape, char direction){
+if(shape == 'T' || shape == 't'){
+	switch(direction){
+		case 'D':
+		collision_check_down_shape_T(row, block);
+		break;
+		case 'L':
+		collision_check_left_shape_T(row, block);
+		break;
+		case 'R':
+		collision_check_right_shape_T(row, block);		
+	}
+} else if(shape == 'L' || shape == 'l'){
+	switch(direction){
+		case 'D':
+		collision_check_down_shape_L(row, block);
+		break;
+		case 'L':
+		collision_check_left_shape_L(row, block);
+		break;
+		case 'R':
+		collision_check_right_shape_L(row, block);		
+		} 
+	} else if(shape == 'J' || shape == 'j'){
+		switch(direction){
+		case 'D':
+		collision_check_down_shape_J(row, block);
+		break;
+		case 'L':
+		collision_check_left_shape_J(row, block);
+		break;
+		case 'R':
+		collision_check_right_shape_J(row, block);		
+	} 
+	} else if(shape == 'Z' || shape == 'z'){
+		switch(direction){
+		case 'D':
+		collision_check_down_shape_Z(row, block);
+		break;
+		case 'L':
+		collision_check_left_shape_Z(row, block);
+		break;
+		case 'R':
+		collision_check_right_shape_Z(row, block);		
+	} 
+	} else if(shape == 'S' || shape == 's'){
+		switch(direction){
+		case 'D':
+		collision_check_down_shape_S(row, block);
+		break;
+		case 'L':
+		collision_check_left_shape_S(row, block);
+		break;
+		case 'R':
+		collision_check_right_shape_S(row, block);		
+	} 
+	} else if(shape == 'I' || shape == 'i'){
+		switch(direction){
+		case 'D':
+		collision_check_down_shape_I(row, block);
+		break;
+		case 'L':
+		collision_check_left_shape_I(row, block);
+		break;
+		case 'R':
+		collision_check_right_shape_I(row, block);		
+	} 
+	}
+}
+
+//Collision check shape T
+void collision_check_down_shape_T(uint8_t row, uint8_t block){
+	switch(rotationPosition){
+		case 0:
+		downCheck = collision_check(row+1, block);
+		downCheck = collision_check(row+1, block-1);
+		downCheck = collision_check(row+1, block-2);
+		break;
+		case 1:
+		downCheck = collision_check(row+3, block);
+		downCheck = collision_check(row+2, block-1);
+		break;
+		case 2:
+		downCheck = collision_check(row+1, block);
+		downCheck = collision_check(row+2, block-1);
+		downCheck = collision_check(row+1, block-2);
+		break;
+		case 3:
+		downCheck = collision_check(row+2, block);
+		downCheck = collision_check(row+3, block-1);
+		break;
+	}
+}
+void collision_check_left_shape_T(uint8_t row, uint8_t block){
+	switch(rotationPosition){
+		case 0:
+		downCheck = collision_check(row, block);
+		downCheck = collision_check(row+1, block+1);
+		break;
+		case 1:
+		downCheck = collision_check(row, block+1);
+		downCheck = collision_check(row+1, block+1);
+		downCheck = collision_check(row+2, block+1);
+		break;
+		case 2:
+		downCheck = collision_check(row, block+1);
+		downCheck = collision_check(row+1, block);
+		break;
+		case 3:
+		downCheck = collision_check(row, block);
+		downCheck = collision_check(row+1, block+1);
+		downCheck = collision_check(row+2, block+1);
+		break;
+	}
+}
+void collision_check_right_shape_T(uint8_t row, uint8_t block){
+	switch(rotationPosition){
+		case 0:
+		downCheck = collision_check(row, block-2);
+		downCheck = collision_check(row+1, block-3);
+		break;
+		case 1:
+		downCheck = collision_check(row, block-1);
+		downCheck = collision_check(row+1, block-2);
+		downCheck = collision_check(row+2, block-1);
+		break;
+		case 2:
+		downCheck = collision_check(row, block-3);
+		downCheck = collision_check(row+1, block-2);
+		break;
+		case 3:
+		downCheck = collision_check(row, block-2);
+		downCheck = collision_check(row+1, block-2);
+		downCheck = collision_check(row+2, block-2);
+		break;
+	}
+}
+
+
+
 
 
 

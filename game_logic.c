@@ -495,146 +495,160 @@ uint8_t collision_check(uint8_t row, uint8_t block)
 
 
 //Collision check per shape
-void collision_check_per_shape(uint8_t row, uint8_t block, char shape, char direction){
-if(shape == 'T' || shape == 't'){
-	switch(direction){
-		case 'D':
-		collision_check_down_shape_T(row, block);
-		break;
-		case 'L':
-		collision_check_left_shape_T(row, block);
-		break;
-		case 'R':
-		collision_check_right_shape_T(row, block);		
-	}
-} else if(shape == 'L' || shape == 'l'){
-	switch(direction){
-		case 'D':
-		collision_check_down_shape_L(row, block);
-		break;
-		case 'L':
-		collision_check_left_shape_L(row, block);
-		break;
-		case 'R':
-		collision_check_right_shape_L(row, block);		
-		} 
-	} else if(shape == 'J' || shape == 'j'){
+void collision_check_per_shape(char direction){
+	if(shape == 'T'){
 		switch(direction){
-		case 'D':
-		collision_check_down_shape_J(row, block);
-		break;
-		case 'L':
-		collision_check_left_shape_J(row, block);
-		break;
-		case 'R':
-		collision_check_right_shape_J(row, block);		
-	} 
-	} else if(shape == 'Z' || shape == 'z'){
+			case 'V':
+			collision_check_down_shape_T();
+			break;
+			case '<':
+			collision_check_left_shape_T();
+			break;
+			case '>':
+			collision_check_right_shape_T();
+			break;		
+			}	
+	} else if(shape == 'L'){
 		switch(direction){
-		case 'D':
-		collision_check_down_shape_Z(row, block);
-		break;
-		case 'L':
-		collision_check_left_shape_Z(row, block);
-		break;
-		case 'R':
-		collision_check_right_shape_Z(row, block);		
-	} 
-	} else if(shape == 'S' || shape == 's'){
+			case 'V':
+			collision_check_down_shape_L();
+			break;
+			case '<':
+			collision_check_left_shape_L();
+			break;
+			case '>':
+			collision_check_right_shape_L();		
+			}
+	} else if(shape == 'J'){
 		switch(direction){
-		case 'D':
-		collision_check_down_shape_S(row, block);
-		break;
-		case 'L':
-		collision_check_left_shape_S(row, block);
-		break;
-		case 'R':
-		collision_check_right_shape_S(row, block);		
-	} 
-	} else if(shape == 'I' || shape == 'i'){
+			case 'V':
+			collision_check_down_shape_J();
+			break;
+			case '<':
+			collision_check_left_shape_J();
+			break;
+			case '>':
+			collision_check_right_shape_J();		
+			} 
+	} else if(shape == 'O'){
 		switch(direction){
-		case 'D':
-		collision_check_down_shape_I(row, block);
-		break;
-		case 'L':
-		collision_check_left_shape_I(row, block);
-		break;
-		case 'R':
-		collision_check_right_shape_I(row, block);		
-	} 
+			case 'V':
+			collision_check_down_shape_O();
+			break;
+			case '<':
+			collision_check_left_shape_O();
+			break;
+			case '>':
+			collision_check_right_shape_O();		
+			} 
+	} else if(shape == 'Z'){
+		switch(direction){
+			case 'V':
+			collision_check_down_shape_Z();
+			break;
+			case '<':
+			collision_check_left_shape_Z();
+			break;
+			case '>':
+			collision_check_right_shape_Z();		
+			} 
+	} else if(shape == 'S'){
+		switch(direction){
+			case 'V':
+			collision_check_down_shape_S();
+			break;
+			case '<':
+			collision_check_left_shape_S();
+			break;
+			case '>':
+			collision_check_right_shape_S();		
+			} 
+	} else if(shape == 'I'){
+		switch(direction){
+			case 'V':
+			collision_check_down_shape_I();
+			break;
+			case '<':
+			collision_check_left_shape_I();
+			break;
+			case '>':
+			collision_check_right_shape_I();		
+			} 
 	}
 }
 
 //Collision check shape T
-void collision_check_down_shape_T(uint8_t row, uint8_t block){
+void collision_check_down_shape_T(){
+
 	switch(rotationPosition){
 		case 0:
-		downCheck = collision_check(row+2, block);
-		downCheck = collision_check(row+2, block-1);
-		downCheck = collision_check(row+2, block-2);
+
+		downCollision += collision_check(row+2, block);
+		downCollision += collision_check(row+2, block-1);
+		downCollision += collision_check(row+2, block-2);
 		break;
 		case 1:
-		downCheck = collision_check(row+3, block);
-		downCheck = collision_check(row+2, block-1);
+		downCollision  += collision_check(row+3, block);
+		downCollision  += collision_check(row+2, block-1);
 		break;
 		case 2:
-		downCheck = collision_check(row+1, block);
-		downCheck = collision_check(row+2, block-1);
-		downCheck = collision_check(row+1, block-2);
+		downCollision  = collision_check(row+1, block);
+		downCollision  = collision_check(row+2, block-1);
+		downCollision  = collision_check(row+1, block-2);
 		break;
 		case 3:
-		downCheck = collision_check(row+2, block);
-		downCheck = collision_check(row+3, block-1);
+		downCollision  = collision_check(row+2, block);
+		downCollision = collision_check(row+3, block-1);
 		break;
 	}
 }
-void collision_check_left_shape_T(uint8_t row, uint8_t block){
+void collision_check_left_shape_T(){
 	switch(rotationPosition){
 		case 0:
-		downCheck = collision_check(row, block);
-		downCheck = collision_check(row+1, block+1);
+		leftCollision  = collision_check(row, block);
+		leftCollision = collision_check(row+1, block+1);
 		break;
 		case 1:
-		downCheck = collision_check(row, block+1);
-		downCheck = collision_check(row+1, block+1);
-		downCheck = collision_check(row+2, block+1);
+		leftCollision  = collision_check(row, block+1);
+		leftCollision  = collision_check(row+1, block+1);
+		leftCollision  = collision_check(row+2, block+1);
 		break;
 		case 2:
-		downCheck = collision_check(row, block+1);
-		downCheck = collision_check(row+1, block);
+		leftCollision  = collision_check(row, block+1);
+		leftCollision  = collision_check(row+1, block);
 		break;
 		case 3:
-		downCheck = collision_check(row, block);
-		downCheck = collision_check(row+1, block+1);
-		downCheck = collision_check(row+2, block+1);
+		leftCollision  = collision_check(row, block);
+		leftCollision  = collision_check(row+1, block+1);
+		leftCollision  = collision_check(row+2, block+1);
 		break;
 	}
 }
-void collision_check_right_shape_T(uint8_t row, uint8_t block){
+void collision_check_right_shape_T(){
 	switch(rotationPosition){
 		case 0:
-		downCheck = collision_check(row, block-2);
-		downCheck = collision_check(row+1, block-3);
+		rightCollision  = collision_check(row, block-2);
+		rightCollision = collision_check(row+1, block-3);
 		break;
 		case 1:
-		downCheck = collision_check(row, block-1);
-		downCheck = collision_check(row+1, block-2);
-		downCheck = collision_check(row+2, block-1);
+		rightCollision  = collision_check(row, block-1);
+		rightCollision  = collision_check(row+1, block-2);
+		rightCollision  = collision_check(row+2, block-1);
 		break;
 		case 2:
-		downCheck = collision_check(row, block-3);
-		downCheck = collision_check(row+1, block-2);
+		rightCollision  = collision_check(row, block-3);
+		rightCollision  = collision_check(row+1, block-2);
 		break;
 		case 3:
-		downCheck = collision_check(row, block-2);
-		downCheck = collision_check(row+1, block-2);
-		downCheck = collision_check(row+2, block-2);
+		rightCollision  = collision_check(row, block-2);
+		rightCollision  = collision_check(row+1, block-2);
+		rightCollision  = collision_check(row+2, block-2);
 		break;
 	}
 }
 
 //Collision check shape L
-void collision_check_down_shape_L(uint8_t row, uint8_t block){
+void collision_check_down_shape_L(){
 	switch(rotationPosition){
 		case 0:
 		downCollision  = collision_check(row+2, block);
@@ -656,7 +670,7 @@ void collision_check_down_shape_L(uint8_t row, uint8_t block){
 		break;
 	}
 }
-void collision_check_left_shape_L(uint8_t row, uint8_t block){
+void collision_check_left_shape_L(){
 	switch(rotationPosition){
 		case 0:
 		leftCollision  = collision_check(row, block-1);
@@ -678,7 +692,7 @@ void collision_check_left_shape_L(uint8_t row, uint8_t block){
 		break;
 	}
 }
-void collision_check_right_shape_L(uint8_t row, uint8_t block){
+void collision_check_right_shape_L(){
 	switch(rotationPosition){
 		case 0:
 		rightCollision  = collision_check(row, block-3);
@@ -702,7 +716,7 @@ void collision_check_right_shape_L(uint8_t row, uint8_t block){
 }
 
 //Collision check shape J
-void collision_check_down_shape_J(uint8_t row, uint8_t block){
+void collision_check_down_shape_J(){
 	switch(rotationPosition){
 		case 0:
 		downCollision  += collision_check(row+2, block);
@@ -724,7 +738,7 @@ void collision_check_down_shape_J(uint8_t row, uint8_t block){
 		break;
 	}
 }
-void collision_check_left_shape_J(uint8_t row, uint8_t block){
+void collision_check_left_shape_J(){
 	switch(rotationPosition){
 		case 0:
 		leftCollision  += collision_check(row, block+1);
@@ -747,7 +761,7 @@ void collision_check_left_shape_J(uint8_t row, uint8_t block){
 		break;
 	}
 }
-void collision_check_right_shape_J(uint8_t row, uint8_t block){
+void collision_check_right_shape_J(){
 	switch(rotationPosition){
 		case 0:
 		rightCollision  += collision_check(row, block-1);
@@ -771,7 +785,7 @@ void collision_check_right_shape_J(uint8_t row, uint8_t block){
 }
 
 //Collision check shape Z
-void collision_check_down_shape_Z(uint8_t row, uint8_t block){
+void collision_check_down_shape_Z(){
 	switch(rotationPosition){
 		case 0:
 		downCollision  += collision_check(row+1, block);
@@ -793,7 +807,7 @@ void collision_check_down_shape_Z(uint8_t row, uint8_t block){
 		break;
 	}
 }
-void collision_check_left_shape_Z(uint8_t row, uint8_t block){
+void collision_check_left_shape_Z(){
 	switch(rotationPosition){
 		case 0:
 		leftCollision  += collision_check(row, block+1);
@@ -815,7 +829,7 @@ void collision_check_left_shape_Z(uint8_t row, uint8_t block){
 		break;
 	}
 }
-void collision_check_right_shape_Z(uint8_t row, uint8_t block){
+void collision_check_right_shape_Z(){
 	switch(rotationPosition){
 		case 0:
 		rightCollision  += collision_check(row, block-2);
@@ -839,7 +853,7 @@ void collision_check_right_shape_Z(uint8_t row, uint8_t block){
 }
 
 //Collision check shape S
-void collision_check_down_shape_S(uint8_t row, uint8_t block){
+void collision_check_down_shape_S(){
 	switch(rotationPosition){
 		case 0:
 		downCollision  += collision_check(row+2, block);
@@ -861,7 +875,7 @@ void collision_check_down_shape_S(uint8_t row, uint8_t block){
 		break;
 	}
 }
-void collision_check_left_shape_S(uint8_t row, uint8_t block){
+void collision_check_left_shape_S(){
 	switch(rotationPosition){
 		case 0:
 		leftCollision += collision_check(row, block);
@@ -883,7 +897,7 @@ void collision_check_left_shape_S(uint8_t row, uint8_t block){
 		break;
 	}
 }
-void collision_check_right_shape_S(uint8_t row, uint8_t block){
+void collision_check_right_shape_S(){
 	switch(rotationPosition){
 		case 0:
 		rightCollision  += collision_check(row, block-3);
@@ -907,7 +921,7 @@ void collision_check_right_shape_S(uint8_t row, uint8_t block){
 }
 
 //Collision check shape I
-void collision_check_down_shape_I(uint8_t row, uint8_t block){
+void collision_check_down_shape_I(){
 	switch(rotationPosition){
 		case 0:
 		downCollision  += collision_check(row+1, block);
@@ -929,7 +943,7 @@ void collision_check_down_shape_I(uint8_t row, uint8_t block){
 		break;
 	}
 }
-void collision_check_left_shape_I(uint8_t row, uint8_t block){
+void collision_check_left_shape_I(){
 	switch(rotationPosition){
 		case 0:
 		leftCollision += collision_check(row, block +1);
@@ -951,7 +965,7 @@ void collision_check_left_shape_I(uint8_t row, uint8_t block){
 		break;
 	}
 }
-void collision_check_right_shape_I(uint8_t row, uint8_t block){
+void collision_check_right_shape_I(){
 	switch(rotationPosition){
 		case 0:
 		rightCollision  += collision_check(row, block-4);
@@ -976,7 +990,7 @@ void collision_check_right_shape_I(uint8_t row, uint8_t block){
 
 
 //Collision check shape O
-void collision_check_down_shape_O(uint8_t row, uint8_t block){
+void collision_check_down_shape_O(){
 	switch(rotationPosition){
 		case 0:
 		downCollision  += collision_check(row+2, block);
@@ -996,7 +1010,7 @@ void collision_check_down_shape_O(uint8_t row, uint8_t block){
 		break;
 	}
 }
-void collision_check_left_shape_O(uint8_t row, uint8_t block){
+void collision_check_left_shape_O(){
 	switch(rotationPosition){
 		case 0:
 		leftCollision += collision_check(row, block +1);
@@ -1016,7 +1030,7 @@ void collision_check_left_shape_O(uint8_t row, uint8_t block){
 		break;
 	}
 }
-void collision_check_right_shape_O(uint8_t row, uint8_t block){
+void collision_check_right_shape_O(){
 	switch(rotationPosition){
 		case 0:
 		rightCollision += collision_check(row, block -2);
@@ -1036,6 +1050,8 @@ void collision_check_right_shape_O(uint8_t row, uint8_t block){
 		break;
 	}
 }
+
+
 
 
 

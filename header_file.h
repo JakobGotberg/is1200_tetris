@@ -57,9 +57,36 @@ void enable_interrupt(void);
 /********************************/
 //project functions, global variables och arrays
 /********************************/
-extern char shape;
+
+typedef struct shape{
+
+   uint8_t row1;
+   uint8_t block1;
+   uint8_t row2;
+   uint8_t block2;
+   uint8_t row3;
+   uint8_t block3;
+   uint8_t row4;
+   uint8_t block4;
+
+   uint8_t bottom_cube;
+   uint8_t left_cube;
+   uint8_t right_cube;
+
+}shape;
+
+void shape_init(void);
+
+extern shape obj;
+extern shape T0;
+
+//extern char shape;
 extern uint8_t row;
 extern uint8_t block;
+uint8_t bottom_cube;
+uint8_t left_cube;
+uint8_t right_cube;
+
 extern uint8_t downCollision;
 extern uint8_t leftCollision;
 extern uint8_t rightCollision;
@@ -80,6 +107,9 @@ void display_testing(void); // trash
 void timer_setup( void );
 
 void fall_down(void);
+void go_right(void);
+void go_left(void);
+
 void row_check(void);
 void row_clear(uint8_t _row);
 
@@ -94,50 +124,8 @@ void logic_to_pixel_clr( uint8_t row, uint8_t block );
 void display_shape(void);
 void delete_shape(void);
 
-void display_shape_T(void);
-void display_shape_L(void);
-void display_shape_J(void);
-void display_shape_Z(void);
-void display_shape_S(void);
-void display_shape_I(void);
-void display_shape_O(void);
 
-void delete_shape_T(void);	
-void delete_shape_L(void);
-void delete_shape_J(void);
-void delete_shape_Z(void);
-void delete_shape_S(void);
-void delete_shape_I(void);
-void delete_shape_O(void);
 
 uint8_t collision_check(uint8_t row, uint8_t block);
 void collision_check_per_shape(char direction);
-
-void collision_check_right_shape_T(void);
-void collision_check_left_shape_T(void);
-void collision_check_down_shape_T(void);
-
-void collision_check_down_shape_L(void);
-void collision_check_left_shape_L(void);
-void collision_check_right_shape_L(void);
-
-void collision_check_right_shape_J(void);
-void collision_check_left_shape_J(void);
-void collision_check_down_shape_J(void);
-
-void collision_check_right_shape_Z(void);
-void collision_check_left_shape_Z(void);
-void collision_check_down_shape_Z(void);
-
-void collision_check_right_shape_S(void);
-void collision_check_left_shape_S(void);
-void collision_check_down_shape_S(void);
-
-void collision_check_right_shape_I(void);
-void collision_check_left_shape_I(void);
-void collision_check_down_shape_I(void);
-
-void collision_check_right_shape_O(void);
-void collision_check_left_shape_O(void);
-void collision_check_down_shape_O(void);
 

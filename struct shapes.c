@@ -1,21 +1,21 @@
 
 
 extern struct Shape {
-    int row1;
-    int block1;
+    uint8_t row1;
+    uint8_t block1;
 
-    int row2;
-    int block2;
+    uint8_t row2;
+    uint8_t block2;
 
-    int row3;
-    int block3;
+    uint8_t row3;
+    uint8_t block3;
 
-    int row4;
-    int block4;
+    uint8_t row4;
+    uint8_t block4;
 
-    int bottom_cube;
-    int right_cube;
-    int left_cube;
+    uint8_t bottom_cube;
+    uint8_t right_cube;
+    uint8_t left_cube;
 
 };
 

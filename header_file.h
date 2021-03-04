@@ -79,6 +79,25 @@ void shape_init(void);
 
 extern shape obj;
 extern shape T0;
+extern shape T1;
+extern shape T2;
+extern shape T3;
+extern shape O;
+extern shape L0;
+extern shape L1;
+extern shape L2;
+extern shape L3;
+extern shape J0;
+extern shape J1;
+extern shape J2;
+extern shape J3;
+extern shape S0;
+extern shape S1;
+extern shape Z0;
+extern shape Z1;
+extern shape I0;
+extern shape I1;
+
 
 //extern char shape;
 extern uint8_t row;

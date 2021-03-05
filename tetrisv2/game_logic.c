@@ -557,4 +557,250 @@ void move_rows_down(uint8_t clearedRow){
 	}
 }
 
+shape rotation_handler()
+{
+
+	temp = obj;
+	switch(obj.shape_index)
+	{
+		case 1: // shape O
+			return temp;
+		break;
+
+		case 2: // shape L0		-> L3
+		//temp.r1 +=
+		temp.b1 += -1;
+		temp.r2 += -1;
+		temp.b2 += -2;
+		//temp.r3 += 
+		temp.b3 += -2;
+		temp.r4 +=	1;
+		temp.b4 += -1;
+		temp.shape_index = 5;
+			return temp;
+		break;
+
+		case 3: // L1		-> L0
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 4: // L2		-> L3
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 5: //L3		-> L0
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 6: // I0    -> I1
+		temp.r1 += -3;
+		//temp.b1
+		temp.r2 += -2;
+		temp.b2 += +1;
+		temp.r3 += -1;
+		temp.b3 += 2;
+		//temp.r4
+		temp.b4 += 3; 
+		temp.shape_index++;
+			return temp;
+		break;
+
+		case 7: // I1     -> I0
+		temp.r1 += 3;
+		//temp.b1
+		temp.r2 += 2;
+		temp.b2 += -1;
+		temp.r3 += 1;
+		temp.b3 += -2;
+		//temp.r4
+		temp.b4 += -3; 
+		temp.shape_index--;
+			return temp;
+		break;
+
+		case 8: // J0	-> J1
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 9: // J1	-> J2
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 10: // J2	-> j3
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 11: // J3 		-> J0
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 12: // T0		-> T1
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 13: // T1		-> T2
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 14: // T2		-> t3
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 15: // T3 		-> T0
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 16: // Z0    -> Z1
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 17: // Z1.    -> Z0
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 18: // S0    -> S1
+		temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+
+		case 19: //S1.     ->S0
+			temp.r1 += 
+		temp.b1 +=
+		temp.r2 += 
+		temp.b2 += 
+		temp.r3 += 
+		temp.b3 += 
+		temp.r4 +=
+		temp.b4 +=  
+		temp.shape_index +=
+			return temp;
+		break;
+	}
+
+}
 

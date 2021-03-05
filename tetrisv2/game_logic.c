@@ -107,6 +107,91 @@ uint8_t collision_check_left()
 			return 1;
 		break;
 
+		case 3: // L1
+		if(0)
+			return 1;
+		break;
+
+		case 4: // L2
+		if(0)
+			return 1;
+		break;
+
+		case 5: //L3
+		if(0)
+			return 1;
+		break;
+
+		case 6: // I0
+		if(0)
+			return 1;
+		break;
+
+		case 7: // I1
+		if(0)
+			return 1;
+		break;
+
+		case 8: // J0
+		if(0)
+			return 1;
+		break;
+
+		case 9: // J1
+		if(0)
+			return 1;
+		break;
+
+		case 10: // J2
+		if(0)
+			return 1;
+		break;
+
+		case 11: // J3
+		if(0)
+			return 1;
+		break;
+
+		case 12: // T0
+		if(0)
+			return 1;
+		break;
+
+		case 13: // T1
+		if(0)
+			return 1;
+		break;
+
+		case 14: // T2
+		if(0)
+			return 1;
+		break;
+
+		case 15: // T3
+		if(0)
+			return 1;
+		break;
+
+		case 16: // Z0
+		if(0)
+			return 1;
+		break;
+
+		case 17: // Z1
+		if(0)
+			return 1;
+		break;
+
+		case 18: // S0
+		if(0)
+			return 1;
+		break;
+
+		case 19: //S1
+		if(0)
+			return 1;
+		break;
+
 	}
 return 0;
 
@@ -126,6 +211,91 @@ uint8_t collision_check_right()
 			collision_check(obj.r3, obj.b3-1))
 			return 1;
 		break;
+
+		case 3: // L1
+		if(0)
+			return 1;
+		break;
+
+		case 4: // L2
+		if(0)
+			return 1;
+		break;
+
+		case 5: //L3
+		if(0)
+			return 1;
+		break;
+
+		case 6: // I0
+		if(0)
+			return 1;
+		break;
+
+		case 7: // I1
+		if(0)
+			return 1;
+		break;
+
+		case 8: // J0
+		if(0)
+			return 1;
+		break;
+
+		case 9: // J1
+		if(0)
+			return 1;
+		break;
+
+		case 10: // J2
+		if(0)
+			return 1;
+		break;
+
+		case 11: // J3
+		if(0)
+			return 1;
+		break;
+
+		case 12: // T0
+		if(0)
+			return 1;
+		break;
+
+		case 13: // T1
+		if(0)
+			return 1;
+		break;
+
+		case 14: // T2
+		if(0)
+			return 1;
+		break;
+
+		case 15: // T3
+		if(0)
+			return 1;
+		break;
+
+		case 16: // Z0
+		if(0)
+			return 1;
+		break;
+
+		case 17: // Z1
+		if(0)
+			return 1;
+		break;
+
+		case 18: // S0
+		if(0)
+			return 1;
+		break;
+
+		case 19: //S1
+		if(0)
+			return 1;
+		break;
 	}
 	return 0;
 }
@@ -141,6 +311,91 @@ uint8_t collision_check_down()
 
 		case 2: // shape L0
 		if(collision_check(obj.r3+1,obj.b3) || collision_check(obj.r4+1,obj.b4))
+			return 1;
+		break;
+
+		case 3: // L1
+		if(0)
+			return 1;
+		break;
+
+		case 4: // L2
+		if(0)
+			return 1;
+		break;
+
+		case 5: //L3
+		if(0)
+			return 1;
+		break;
+
+		case 6: // I0
+		if(0)
+			return 1;
+		break;
+
+		case 7: // I1
+		if(0)
+			return 1;
+		break;
+
+		case 8: // J0
+		if(0)
+			return 1;
+		break;
+
+		case 9: // J1
+		if(0)
+			return 1;
+		break;
+
+		case 10: // J2
+		if(0)
+			return 1;
+		break;
+
+		case 11: // J3
+		if(0)
+			return 1;
+		break;
+
+		case 12: // T0
+		if(0)
+			return 1;
+		break;
+
+		case 13: // T1
+		if(0)
+			return 1;
+		break;
+
+		case 14: // T2
+		if(0)
+			return 1;
+		break;
+
+		case 15: // T3
+		if(0)
+			return 1;
+		break;
+
+		case 16: // Z0
+		if(0)
+			return 1;
+		break;
+
+		case 17: // Z1
+		if(0)
+			return 1;
+		break;
+
+		case 18: // S0
+		if(0)
+			return 1;
+		break;
+
+		case 19: //S1
+		if(0)
 			return 1;
 		break;
 	}
@@ -202,6 +457,7 @@ void fall_down()
 		
 	}
 	else{
+		row_check();
 		new_shape_flag = 1;
 	}
 
@@ -216,15 +472,15 @@ shape shape_handler(uint8_t s)
 			break;
 
 		case 2:
-			return L0;
+			return L1;
 			break;
 
 		case 3:
-			return I0;
+			return I1;
 			break;
 
 		case 4:
-			return J0;
+			return J3;
 			break;
 
 		case 5:
@@ -241,5 +497,47 @@ shape shape_handler(uint8_t s)
 	}
 }
 
+	
+	void row_check()
+{
+	uint8_t row = obj.r1;
+	int clear = 0;
+	int i;
+	int p;
+	for(i = row; i < row + 4; i++){
+		for(p = 1; p < 11; p++){
+			clear += collision_check(i, p);
+		}
+		if(clear == 10){
+			row_clear(i);
+			score++;
+		}
+		clear = 0;
+	}	
+}
+
+void row_clear(uint8_t _row)
+{
+	int i;
+	for(i = 1; i < 11; i++){
+		logic_to_pixel_clr(_row, i);
+	}
+	
+	move_rows_down(_row);
+}
+
+void move_rows_down(uint8_t clearedRow){
+	int i;
+	int p;
+	for(i = clearedRow; i > 0; i--){
+		for(p = 1; p < 11; p++){
+			int moveDown = collision_check(i-1, p);
+			if(moveDown == 1){
+				logic_to_pixel_clr(i-1, p);
+				logic_to_pixel_set(i, p);
+			}	
+		}
+	}
+}
 
 

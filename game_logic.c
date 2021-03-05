@@ -169,52 +169,16 @@ char rng()
 return 'z';
 
 }
-/*
-void row_check_old()
-{
 
-
-
-	int i, j;
-	j = row+3;
-	/*
-	if(row <= 17)
-		j = row+3;
-
-	if(row == 18)
-		j = row+2;
-
-	if(row == 19)
-		j = row+1;
-
-	if(row == 20)
-		j == row;
-		*/
-
-	for(i = 0; i < 1; i++){
-		if((collision_check(row+1, 1) + 
-			collision_check(row+1, 2) + 
-			collision_check(row+1, 3) +
-			collision_check(row+1, 4) + 
-			collision_check(row+1, 5) + 
-			collision_check(row+1, 6) +
-			collision_check(row+1, 7) + 
-			collision_check(row+1, 8) + 
-			collision_check(row+1, 9) + 
-			collision_check(row+1, 10)) == 10)
-			{ row_clear(row); }
-	}
-
-	
-}
-*/
 	
 	void row_check()
 {
 	uint8_t row = object.r1;
 	int clear = 0;
-	for(int i = row; i < row + 4; i++){
-		for(int p = 1; p < 11; p++){
+	int i;
+	int p;
+	for(i = row; i < row + 4; i++){
+		for(p = 1; p < 11; p++){
 			clear += collision_check(i, p);
 		}
 		if(clear == 10){
@@ -250,7 +214,8 @@ logic_to_pixel_set(9,1);
 */
 void row_clear(uint8_t _row)
 {
-	for(int i = 1; i < 11; i++){
+	int i;
+	for(i = 1; i < 11; i++){
 		logic_to_pixel_clr(_row, i);
 	}
 	
@@ -258,8 +223,10 @@ void row_clear(uint8_t _row)
 }
 
 void move_rows_down(uint8_t clearedRow){
-	for(int i = clearedRow; i > 0; i--){
-		for(int p = 1; p < 11; p++){
+	int i;
+	int p;
+	for(i = clearedRow; i > 0; i--){
+		for(p = 1; p < 11; p++){
 			int moveDown = collision_check(i-1, p);
 			if(moveDown == 1){
 				logic_to_pixel_clr(i-1, p);

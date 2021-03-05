@@ -73,16 +73,16 @@ void shape_init()
 	
 	//Cube 1
 	L0.row1 = 1; 
-	L0.block1 = 6;
+	L0.block1 = 4;
 	//Cube 2
 	L0.row2 = 2;
-	L0.block2 = 6;
+	L0.block2 = 2;
 	//Cube 3
-	L0.row3 = 3;
-	L0.block3 = 6;
+	L0.row3 = 2;
+	L0.block3 = 3;
 	//Cube 4
-	L0.row4 = 3;
-	L0.block4 = 5;
+	L0.row4 = 2;
+	L0.block4 = 4;
 
     //Bottom, left, right cubes
     L0.bottom_cube = 3;

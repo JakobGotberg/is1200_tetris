@@ -206,93 +206,98 @@ uint8_t collision_check_right()
 		break;
 
 		case 2: // shape L0
-		if(collision_check(obj.r1,obj.b1-1) || collision_check(obj.r2,obj.b2-1) || 
-			collision_check(obj.r3, obj.b3-1))
+		if(collision_check(obj.r1,obj.b1-1) || collision_check(obj.r4,obj.b4-1))
 			return 1;
 		break;
 
 		case 3: // L1
-		if(0)
+		if(collision_check(obj.r1,obj.b1-1) || collision_check(obj.r2,obj.b2-1) || 
+			collision_check(obj.r4, obj.b4-1))
 			return 1;
 		break;
 
 		case 4: // L2
-		if(0)
+		if(collision_check(obj.r3,obj.b3-1) || collision_check(obj.r4,obj.b4-1))
 			return 1;
 		break;
 
 		case 5: //L3
-		if(0)
+		if(collision_check(obj.r2,obj.b2-1) || collision_check(obj.r3,obj.b3-1) || 
+			collision_check(obj.r4, obj.b4-1))
 			return 1;
 		break;
 
 		case 6: // I0
-		if(0)
+		if(collision_check(obj.r4,obj.b4-1))
 			return 1;
 		break;
 
 		case 7: // I1
-		if(0)
+		if(collision_check(obj.r1,obj.b1-1) || collision_check(obj.r2, obj.b2-1) || collision_check(obj.r3, obj.b3-1)|| collision_check(obj.r4, obj.b4-1))
 			return 1;
 		break;
 
 		case 8: // J0
-		if(0)
+		if(collision_check(obj.r1,obj.b1-1) || collision_check(obj.r4, obj.b4-1))
 			return 1;
 		break;
 
 		case 9: // J1
-		if(0)
+		if(collision_check(obj.r2,obj.b2-1) || collision_check(obj.r3, obj.b3-1) || collision_check(obj.r4, obj.b4-1))
 			return 1;
 		break;
 
 		case 10: // J2
-		if(0)
+		if(collision_check(obj.r3,obj.b3-1) || collision_check(obj.r4, obj.b4-1))
 			return 1;
 		break;
 
 		case 11: // J3
-		if(0)
+		if(collision_check(obj.r1,obj.b1-1) || collision_check(obj.r2, obj.b2-1) || collision_check(obj.r3, obj.b3-1))
 			return 1;
 		break;
 
 		case 12: // T0
-		if(0)
+		if(collision_check(obj.r1,obj.b1-1) || collision_check(obj.r4, obj.b4-1))
 			return 1;
 		break;
 
 		case 13: // T1
-		if(0)
+		if(collision_check(obj.r1,obj.b1-1) || collision_check(obj.r3, obj.b3-1)  || collision_check(obj.r4, obj.b4-1))
 			return 1;
 		break;
 
 		case 14: // T2
-		if(0)
+		if(collision_check(obj.r3,obj.b3-1) || collision_check(obj.r4, obj.b4-1))
 			return 1;
 		break;
 
 		case 15: // T3
-		if(0)
+		if(collision_check(obj.r1,obj.b1-1) || collision_check(obj.r3, obj.b3-1) || collision_check(obj.r4, obj.b4-1))
 			return 1;
 		break;
 
 		case 16: // Z0
-		if(0)
+		if(collision_check(obj.r2,obj.b2-1) || collision_check(obj.r4, obj.b4-1))
+			
 			return 1;
 		break;
 
 		case 17: // Z1
-		if(0)
+		if(collision_check(obj.r1,obj.b1-1) || collision_check(obj.r3, obj.b3-1) || collision_check(obj.r4, obj.b4-1))
+			
 			return 1;
 		break;
 
 		case 18: // S0
-		if(0)
+		if(collision_check(obj.r2,obj.b2-1) || collision_check(obj.r4, obj.b4-1))
+			
 			return 1;
 		break;
 
 		case 19: //S1
-		if(0)
+		if(collision_check(obj.r1,obj.b1-1) || collision_check(obj.r3, obj.b3-1) || collision_check(obj.r4, obj.b4-1))
+			
 			return 1;
 		break;
 	}

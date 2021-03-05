@@ -211,7 +211,7 @@ void row_check_old()
 	
 	void row_check()
 {
-	int row = object.r1;
+	uint8_t row = object.r1;
 	int clear = 0;
 	for(int i = row; i < row + 4; i++){
 		for(int p = 1; p < 11; p++){
@@ -257,7 +257,7 @@ void row_clear(uint8_t _row)
 	move_rows_down(_row);
 }
 
-void move_rows_down(int clearedRow){
+void move_rows_down(uint8_t clearedRow){
 	for(int i = clearedRow; i > 0; i--){
 		for(int p = 1; p < 11; p++){
 			int moveDown = collision_check(i-1, p);

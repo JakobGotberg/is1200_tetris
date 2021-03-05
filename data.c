@@ -85,9 +85,9 @@ void shape_init()
 	L0.block4 = 4;
 
     //Bottom, left, right cubes
-    L0.bottom_cube = 3;
-    L0.left_cube = 6;
-    L0.right_cube = 5;
+    L0.bottom_cube = 2;
+    L0.left_cube = 2;
+    L0.right_cube = 4;
 
 
 	//Cube 1

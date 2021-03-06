@@ -560,7 +560,7 @@ void move_rows_down(uint8_t clearedRow){
 shape rotation_handler()
 {
 
-	temp = obj;
+	Shape temp = obj;
 	switch(obj.shape_index)
 	{
 		case 1: // shape O

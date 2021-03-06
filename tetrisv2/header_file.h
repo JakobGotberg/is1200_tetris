@@ -155,7 +155,7 @@ void display_shape(void);
 void delete_shape(void);
 
 void row_clear(uint8_t _row);
-void move_rows_down(int clearedRow);
+void move_rows_down(uint8_t clearedRow);
 void row_check(void);
 
 

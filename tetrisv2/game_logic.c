@@ -73,13 +73,65 @@ void delete_shape()
 
 void btn_check()
 {
-	if(getbtns() & 1)
-		go_left_flag = 1;
+	
+
+	if(getbtns() & 1) 
+	{
+		go_left_flag = 1;			
+	}
 
 	if(getbtns() & 2)
-		go_right_flag = 1;
+	{
+		go_right_flag = 1;			
+	}
 
-	//rotate_flag = (getbtns & 4);
+	if(getbtns() & 4)
+	{
+		rotate_flag = 1;		
+	}
+	
+
+}
+
+void animation()
+{
+
+if(!lock && lock2)
+	{
+
+		if(go_left_flag)
+		{
+			go_left();
+			lock = 1;
+			lock2 = 0;
+			go_right_flag = 0;
+		}
+
+		else if(go_right_flag)
+		{
+			go_right();
+			lock = 1;
+			lock2 = 0;
+			go_left_flag = 0;
+		}
+
+		else if(rotate_flag && !rotate_lock)
+		{
+			delete_shape();
+			obj = rotation_handler();
+			rotate_flag = 0;
+			display_shape();
+			rotate_lock = 1;
+			lock = 1;
+			lock2 = 0;
+		}
+
+	}
+else if(lock && !lock2)
+{	
+lock2 = 1;
+lock = 0;
+}
 
 }
 
@@ -102,7 +154,8 @@ uint8_t collision_check_left()
 		break;
 
 		case 2: // shape L0
-		if( collision_check(obj.r1,obj.b1+1) || collision_check(obj.r2,obj.b2+1))
+		if( collision_check(obj.r1,obj.b1+1) || collision_check(obj.r2,obj.b2+1)
+			 || collision_check(obj.r4,obj.b4+1))
 			return 1;
 		break;
 
@@ -436,7 +489,10 @@ void go_left()
 		obj.right_cube++;
 		display_shape();
 	}
-	leftCollision = 0;
+	
+	go_left_flag = 0;
+
+	
 }
 
 
@@ -444,6 +500,7 @@ void go_left()
 void go_right()
 {
 	//rightCollision = collision_check_right();
+
 	if(obj.right_cube != 1 && !( collision_check_right() )) {
 		delete_shape();
 		obj.b1--;
@@ -453,8 +510,9 @@ void go_right()
 		obj.right_cube--;
 		obj.left_cube--;
 		display_shape();
+		go_right_flag = 0;
 	}
-	rightCollision = 0;
+	
 }
 
 
@@ -462,8 +520,7 @@ void go_right()
 void fall_down()
 {
 	
-	downCollision = collision_check_down();
-	if(obj.bottom_cube != 20 && (downCollision == 0)){
+	if(obj.bottom_cube != 20 && !collision_check_down()){
 		delete_shape();
 		obj.r1++;
 		obj.r2++;
@@ -514,52 +571,9 @@ shape shape_handler(uint8_t s)
 	}
 }
 
-	
-	void row_check()
-{
-	uint8_t row = obj.r1;
-	int clear = 0;
-	int i;
-	int p;
-	for(i = row; i < row + 4; i++){
-		for(p = 1; p < 11; p++){
-			clear += collision_check(i, p);
-		}
-		if(clear == 10){
-			row_clear(i);
-			score++;
-		}
-		clear = 0;
-	}	
-}
-
-void row_clear(uint8_t _row)
-{
-	int i;
-	for(i = 1; i < 11; i++){
-		logic_to_pixel_clr(_row, i);
-	}
-	
-	move_rows_down(_row);
-}
-
-void move_rows_down(uint8_t clearedRow){
-	int i;
-	int p;
-	for(i = clearedRow; i > 0; i--){
-		for(p = 1; p < 11; p++){
-			int moveDown = collision_check(i-1, p);
-			if(moveDown == 1){
-				logic_to_pixel_clr(i-1, p);
-				logic_to_pixel_set(i, p);
-			}	
-		}
-	}
-}
-
 shape rotation_handler()
 {
-	shape temp;
+
 	temp = obj;
 	switch(obj.shape_index)
 	{
@@ -818,5 +832,46 @@ shape rotation_handler()
 
 }
 
+	void row_check()
+{
+	uint8_t row = obj.r1;
+	int clear = 0;
+	int i;
+	int p;
+	for(i = row; i < row + 4; i++){
+		for(p = 1; p < 11; p++){
+			clear += collision_check(i, p);
+		}
+		if(clear == 10){
+			row_clear(i);
+			score++;
+		}
+		clear = 0;
+	}	
 }
+
+void row_clear(uint8_t _row)
+{
+	int i;
+	for(i = 1; i < 11; i++){
+		logic_to_pixel_clr(_row, i);
+	}
+	
+	move_rows_down(_row);
+}
+
+void move_rows_down(uint8_t clearedRow){
+	int i;
+	int p;
+	for(i = clearedRow; i > 0; i--){
+		for(p = 1; p < 11; p++){
+			int moveDown = collision_check(i-1, p);
+			if(moveDown == 1){
+				logic_to_pixel_clr(i-1, p);
+				logic_to_pixel_set(i, p);
+			}	
+		}
+	}
+}
+
 

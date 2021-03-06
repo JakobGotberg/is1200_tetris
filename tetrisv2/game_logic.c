@@ -560,62 +560,74 @@ void move_rows_down(uint8_t clearedRow){
 shape rotation_handler()
 {
 
-	Shape temp = obj;
+	temp = obj;
 	switch(obj.shape_index)
 	{
 		case 1: // shape O
 			return temp;
 		break;
 
-		case 2: // shape L0		-> L3
+		case 2: // shape L0		-> L1
 		//temp.r1 +=
-		temp.b1 += -1;
-		temp.r2 += -1;
-		temp.b2 += -2;
-		//temp.r3 += 
-		temp.b3 += -2;
+		temp.b1 += 1;
+		//temp.r2 += ;
+		temp.b2 += -1;
+		temp.r3 += 1; 
+		//temp.b3 += 
 		temp.r4 +=	1;
-		temp.b4 += -1;
-		temp.shape_index = 5;
+		//temp.b4 += ;
+		temp.shape_index = 3;
 			return temp;
 		break;
 
-		case 3: // L1		-> L0
-		temp.r1 += 
-		temp.b1 +=
-		temp.r2 += 
-		temp.b2 += 
-		temp.r3 += 
-		temp.b3 += 
-		temp.r4 +=
-		temp.b4 +=  
-		temp.shape_index +=
+		case 3: // L1		-> L2
+		temp.r1 += 1;
+		temp.b1 += 1;
+		//temp.r2 += 
+		//temp.b2 += 
+		temp.r3 += -1;
+		temp.b3 += -1;
+		//temp.r4 +=
+		temp.b4 += +2;  
+		temp.shape_index = 4;
+
+		temp.bottom_cube = temp.r4;
+   		temp.left_cube   = temp.b1;
+  		temp.right_cube  = temp.b3;
 			return temp;
 		break;
 
 		case 4: // L2		-> L3
-		temp.r1 += 
-		temp.b1 +=
-		temp.r2 += 
-		temp.b2 += 
-		temp.r3 += 
-		temp.b3 += 
-		temp.r4 +=
-		temp.b4 +=  
-		temp.shape_index +=
+		temp.r1 += -1;
+		//temp.b1 +=
+		temp.r2 += -1;
+		//temp.b2 += 
+		//temp.r3 += 
+		temp.b3 += +1; 
+		//temp.r4 +=
+		temp.b4 += -1; 
+		temp.shape_index = 5;
+
+		
+   		temp.left_cube   = temp.b1;
+  		temp.right_cube  = temp.b3;
 			return temp;
 		break;
 
 		case 5: //L3		-> L0
-		temp.r1 += 
-		temp.b1 +=
-		temp.r2 += 
-		temp.b2 += 
-		temp.r3 += 
-		temp.b3 += 
-		temp.r4 +=
-		temp.b4 +=  
-		temp.shape_index +=
+		//temp.r1 += 
+		temp.b1 += -2;
+		temp.r2 += 1;
+		temp.b2 += 1;
+		//temp.r3 += 
+		//temp.b3 += 
+		temp.r4 += -1;
+		temp.b4 +=  -1;
+		temp.shape_index = 2;
+
+
+   		temp.left_cube   = temp.b2;
+  		temp.right_cube  = temp.b1;
 			return temp;
 		break;
 
@@ -645,7 +657,7 @@ shape rotation_handler()
 			return temp;
 		break;
 
-		case 8: // J0	-> J1
+	case 8: // J0	-> J1
 		temp.r2 += -1;
 		temp.b2 += -1;
 		temp.r3 += 0;
@@ -674,7 +686,7 @@ shape rotation_handler()
 		temp.b3 += 1;
 		temp.r4 += 1;
 		temp.b4 += 2;
-		temp.shape_index +=
+		temp.shape_index += 1;
 			return temp;
 		break;
 
@@ -691,55 +703,62 @@ shape rotation_handler()
 			return temp;
 		break;
 
+
 		case 12: // T0		-> T1
-		temp.r1 += 
-		temp.b1 +=
-		temp.r2 += 
-		temp.b2 += 
-		temp.r3 += 
-		temp.b3 += 
-		temp.r4 +=
-		temp.b4 +=  
-		temp.shape_index +=
+		//temp.r1 += 
+		//temp.b1 +=
+		//temp.r2 += 
+		temp.b2 += -1;
+		//temp.r3 += 
+		temp.b3 += -1; 
+		temp.r4 += +1;
+		temp.b4 += +1; 
+		temp.shape_index = 13;
+
+		temp.bottom_cube = temp.r4;
+   		temp.left_cube   = temp.b1;
+  		temp.right_cube  = temp.b3;
 			return temp;
 		break;
 
 		case 13: // T1		-> T2
-		temp.r1 += 
-		temp.b1 +=
-		temp.r2 += 
-		temp.b2 += 
-		temp.r3 += 
-		temp.b3 += 
-		temp.r4 +=
-		temp.b4 +=  
-		temp.shape_index +=
+		temp.r1 += 1;
+		temp.b1 += 1;
+		//temp.r2 += 
+		//temp.b2 += 
+		//temp.r3 += 
+		//temp.b3 += 
+		//temp.r4 += 
+		//temp.b4 +=  
+		temp.shape_index = 14;
 			return temp;
 		break;
 
 		case 14: // T2		-> t3
-		temp.r1 += 
-		temp.b1 +=
-		temp.r2 += 
-		temp.b2 += 
-		temp.r3 += 
-		temp.b3 += 
-		temp.r4 +=
-		temp.b4 +=  
-		temp.shape_index +=
+		temp.r1 += -1;
+		temp.b1 += -1;
+		//temp.r2 += 
+		temp.b2 += 1;
+		//temp.r3 += 
+		temp.b3 += 1;
+		//temp.r4 += 
+		//temp.b4 +=  
+		temp.shape_index = 15;
+   		temp.left_cube   = temp.b2;
 			return temp;
 		break;
 
 		case 15: // T3 		-> T0
-		temp.r1 += 
-		temp.b1 +=
-		temp.r2 += 
-		temp.b2 += 
-		temp.r3 += 
-		temp.b3 += 
-		temp.r4 +=
-		temp.b4 +=  
-		temp.shape_index +=
+		//temp.r1 += 
+		//temp.b1 +=
+		//temp.r2 += 
+		//temp.b2 += 
+		//temp.r3 += 
+		//temp.b3 += 
+		temp.r4 += -1;
+		temp.b4 +=  -1;
+		temp.shape_index = 12;
+  		temp.right_cube  = temp.b4;
 			return temp;
 		break;
 
@@ -795,6 +814,9 @@ shape rotation_handler()
 			return temp;
 		break;
 	}
+
+
+}
 
 }
 

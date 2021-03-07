@@ -861,6 +861,7 @@ void row_clear(uint8_t _row)
 }
 
 void move_rows_down(uint8_t clearedRow){
+	score++;
 	int i;
 	int p;
 	for(i = clearedRow; i > 0; i--){
